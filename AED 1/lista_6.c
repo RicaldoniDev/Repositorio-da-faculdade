@@ -13,7 +13,6 @@ float soma_linha(int matriz[MAX_LIN][MAX_COL], int linha)
         printf("%d\n", matriz[linha - 1][i]);
         soma += matriz[linha - 1][i];
     }
-    printf("%d\n", soma);
     return soma;
 }
 
@@ -156,7 +155,7 @@ void exercicio_4()
 
     int *vet_a = (int *)malloc(tamanho * sizeof(int));
     int *vet_b = (int *)malloc(tamanho * sizeof(int));
-    //    vv esta como ponteiro para poder ser retornado como referencia
+    //    v Esta como ponteiro para poder ser retornado como referencia
     int *vet_c;
 
     for (int i = 0; i < tamanho; i++)

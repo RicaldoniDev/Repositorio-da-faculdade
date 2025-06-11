@@ -213,6 +213,7 @@ void exercicio_7()
 
 int main()
 {
+    // O professor nos deu a ideia de criar uma menu usando um switch e a partir desta lista eu começei a fazer desta forma
     int opcao;
     do
     {
@@ -230,7 +231,7 @@ int main()
                "11 - Sair\n");
 
         scanf("%d", &opcao);
-
+        // Em alguns casos eu tratei como função e o "main" do exercicio faz parte do caso
         switch (opcao)
         {
         case 1:

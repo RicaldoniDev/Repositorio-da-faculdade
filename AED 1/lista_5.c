@@ -7,6 +7,10 @@
 
 void limpa_buffer()
 {
+    /*
+    Esta função de limpar buffer é necessária quando se tem que lidar com um menu
+    e o usuário necessita digitar alguma coisa no terminal além da escolha do menu
+    */
     int c;
     while ((c = getchar()) != '\n' && c != EOF)
     {
@@ -24,6 +28,7 @@ void exercicio_1()
     float conjunto_a[5];
     float conjunto_b[5];
 
+    // Antes que pergunte "por que não fez isso com um loop", eu sei tanto da resposta quanto você
     printf("Digite 5 numeros reais: ");
     scanf("%f", &conjunto_a[0]);
     scanf("%f", &conjunto_a[1]);
@@ -156,9 +161,9 @@ void exercicio_3()
     intercala(array_x, array_y, length, array_z);
 }
 
-void validaSenha(char senha[], int *ok)
+bool validaSenha(char senha[])
 {
-    bool res, maiusculo = 0, minusculo = 0, numero = 0, char_especial = 0;
+    bool ok, res, maiusculo = 0, minusculo = 0, numero = 0, char_especial = 0;
 
     if (strlen(senha) < 8)
     {
@@ -184,32 +189,34 @@ void validaSenha(char senha[], int *ok)
 
     if (res == 0)
     {
+        ok = false;
         printf("Senha inválida, tente novamente");
-        return;
+        return ok;
     }
 
+    ok = true;
     printf("Senha válida!");
-    *ok = 1;
+    return ok;
 }
 
 void exercicio_4()
 {
     /*
-        Peça ao usuário que crie uma senha. Utilize um para armazenar a senha. Valide se a senha
+        Peça ao usuário que crie uma senha. Utilize um arranjo de caracteres para armazenar a senha. Valide se a senha
         atende aos critérios de segurança, como ter pelo menos 8 caracteres, conter pelo menos uma
         letra maiúscula, uma letra minúscula, um número e um caractere especial. Imprima se a senha é
         válida ou não.
     */
     char senha[40];
-    int ok = 0;
+    bool valida;
     int cont = 0;
     do
     {
         printf("\nCrie uma senha: ");
         scanf("%s", &senha);
 
-        validaSenha(senha, &ok);
-    } while (ok != 1 && cont < 5);
+        valida = validaSenha(senha);
+    } while (!valida && cont < 5);
 }
 
 int validarEmail(char email[])
@@ -338,6 +345,7 @@ int main()
         scanf("%d", &opcao);
         limpa_buffer();
 
+        // A partir desta lista eu comecei a tratar o void exercicio_n() como o main de cada exercicio para melhor legibilidade
         switch (opcao)
         {
         case 1:
