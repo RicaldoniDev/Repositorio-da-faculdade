@@ -2,9 +2,6 @@
 
 ## Esse repositório contém os meus projetos que são necessários para minha faculdade com pastas diferentes para cada aula.
 
-
-***
-
 ### 1º Semestre
 
 As matérias que são relevantes para este repositório são:  
